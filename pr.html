@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Set your preferred height */
+  position: relative;
+}
+
+.info {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="info">Web Developer</div>
+        <div class="info">Youtuber</div>
+        <div class="info">Engineer</div>
+        <div class="info">Dancer</div>
+      </div>      
+</body>
+<script>
+    const infos = document.querySelectorAll('.info');
+let currentIndex = 0;
+
+function toggleInfo() {
+  infos.forEach((info, index) => {
+    if (index === currentIndex) {
+      info.classList.add('show');
+    } else {
+      info.classList.remove('show');
+    }
+  });
+
+  currentIndex = (currentIndex + 1) % infos.length;
+}
+
+setInterval(toggleInfo, 3000); // Change the interval time here (in milliseconds)
+toggleInfo(); // Show the first info immediately
+
+
+</script>
+</html>
